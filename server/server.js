@@ -12,6 +12,7 @@ app.use(express.urlencoded({ extended: false }));
 app.get("/", (req, res) => {
   return res.send("Test TOdo-List API running");
 });
+app.use("/api", require("./routes/todoRoutes"));
 
 connectDB()
   .then(() => {
