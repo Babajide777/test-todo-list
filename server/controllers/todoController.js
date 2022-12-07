@@ -11,6 +11,4 @@ const createTodo = async (req, res) => {
 
 module.exports = {
   createTodo,
-  getAllTodos,
-  deleteTodo,
 };

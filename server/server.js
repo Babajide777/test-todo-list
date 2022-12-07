@@ -4,10 +4,12 @@ const { connectDB } = require("./config/db");
 const app = express();
 require("dotenv").config();
 const PORT = process.env.PORT || 4000;
+const corsOption = require("./utils/corsOption");
 
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(corsOption);
 
 app.get("/", (req, res) => {
   return res.send("Test TOdo-List API running");
