@@ -1,5 +1,6 @@
 import React from "react";
 import { BsFillPlusSquareFill } from "react-icons/bs";
+import SingleTodo from "./SingleTodo";
 
 const MainComponent = () => {
   return (
@@ -10,13 +11,17 @@ const MainComponent = () => {
           <input
             type="text"
             placeholder="Enter a new Todo"
-            className="border-[#ccc] border-[1px] w-[80%] p-2"
+            className="border-[#ccc] border-[1px] w-[85%] rounded-md p-2"
           ></input>
           <BsFillPlusSquareFill
             color="#8E49E8"
             size="2.5rem"
+            className="cursor-pointer hover:opacity-50"
           ></BsFillPlusSquareFill>
         </div>
+        <ul>
+          <SingleTodo todo="Jide" />
+        </ul>
         <p>
           You have <span className="pending"></span> pending Todos
         </p>
