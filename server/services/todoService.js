@@ -14,4 +14,6 @@ const createNewTodo = async ({ todo }) => {
   }
 };
 
-module.exports = { createNewTodo };
+const getTodos = async () => await Todo.find();
+
+module.exports = { createNewTodo, getTodos };
