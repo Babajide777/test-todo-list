@@ -1,7 +1,9 @@
+import MainComponent from "./components/MainComponent";
+
 function App() {
   return (
     <main>
-      <p>Jide</p>
+      <MainComponent />
     </main>
   );
 }
