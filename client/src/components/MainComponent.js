@@ -1,9 +1,11 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { BsFillPlusSquareFill } from "react-icons/bs";
 import SingleTodo from "./SingleTodo";
 
 const MainComponent = () => {
   const inputEl = useRef(null);
+  const [allTodos, setAllTodos] = useState([]);
+  const [first, setfirst] = useState(true);
 
   const handleNewTodo = () => {
     let todoValue = inputEl.current.value;
@@ -16,10 +18,21 @@ const MainComponent = () => {
         },
       })
         .then((res) => res.json())
-        // .then((res) => setfirst(!first))
+        .then((res) => setfirst(!first))
         .catch((err) => console.log(err));
     }
   };
+
+  const setFirstFunc = () => {
+    setfirst(!first);
+  };
+
+  useEffect(() => {
+    fetch("http://localhost:4000/api/todos")
+      .then((res) => res.json())
+      .then((res) => setAllTodos(res.data))
+      .catch((err) => console.log(err));
+  }, [first]);
 
   return (
     <main className="flex items-center justify-center w-[100vw] h-[100vh] bg-gradient-to-b from-[#68EACC] to-[#497BE8]">
@@ -40,7 +53,9 @@ const MainComponent = () => {
           />
         </div>
         <ul>
-          <SingleTodo todo="Jide" />
+          {allTodos.map((eachTodo, i) => (
+            <SingleTodo key={i} {...eachTodo} first={setFirstFunc} />
+          ))}
         </ul>
         <p>
           You have <span className="pending"></span> pending Todos

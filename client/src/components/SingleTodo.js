@@ -1,7 +1,7 @@
 import React from "react";
 import { MdDeleteOutline } from "react-icons/md";
 
-const SingleTodo = ({ todo }) => {
+const SingleTodo = ({ todo, _id, first }) => {
   return (
     <li className="flex justify-between items-center bg-[#f2f2f2] py-3 rounded-md mb-6 px-2">
       <p className="text-xl">{todo}</p>
