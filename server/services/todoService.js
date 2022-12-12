@@ -18,4 +18,7 @@ const getTodos = async () => await Todo.find();
 
 const deleteATodo = async (id) => await Todo.findByIdAndDelete(id);
 
-module.exports = { createNewTodo, getTodos, deleteATodo };
+const editATodo = async (id, todo) =>
+  await Todo.findByIdAndUpdate(id, { todo }, { new: true });
+
+module.exports = { createNewTodo, getTodos, deleteATodo, editATodo };

@@ -24,8 +24,11 @@ const deleteTodo = async (req, res) => {
     : responseHandler(res, "Error deleting Todo", 400, false, "");
 };
 
+const editTodo = async (req, res) => {};
+
 module.exports = {
   createTodo,
   getAllTodos,
   deleteTodo,
+  editTodo,
 };
