@@ -2,6 +2,7 @@ const {
   createNewTodo,
   getTodos,
   deleteATodo,
+  editATodo,
 } = require("../services/todoService");
 const { responseHandler } = require("../utils/responseHandler");
 
@@ -24,7 +25,13 @@ const deleteTodo = async (req, res) => {
     : responseHandler(res, "Error deleting Todo", 400, false, "");
 };
 
-const editTodo = async (req, res) => {};
+const editTodo = async (req, res) => {
+  const check = await editATodo(req.params.id, req.body.todo);
+
+  return check
+    ? responseHandler(res, "Todo edited successfully", 200, true, "")
+    : responseHandler(res, "Error editing Todo", 400, false, "");
+};
 
 module.exports = {
   createTodo,
