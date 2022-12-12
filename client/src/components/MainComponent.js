@@ -44,7 +44,7 @@ const MainComponent = () => {
             placeholder="Enter a new Todo"
             className="border-[#ccc] border-[1px] w-[85%] rounded-md p-2"
             ref={inputEl}
-          ></input>
+          />
           <BsFillPlusSquareFill
             color="#8E49E8"
             size="2.5rem"
@@ -57,9 +57,7 @@ const MainComponent = () => {
             <SingleTodo key={i} {...eachTodo} first={setFirstFunc} />
           ))}
         </ul>
-        <p>
-          You have <span className="pending"></span> pending Todos
-        </p>
+        <p>You have {allTodos.length} pending Todo(s)</p>
       </section>
     </main>
   );
