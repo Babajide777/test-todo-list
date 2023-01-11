@@ -25,7 +25,7 @@ const SingleTodo = ({ todo, _id, first }) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ todo }),
+      body: JSON.stringify({ todo: inputEl.current.value }),
     })
       .then((res) => res.json())
       .then((res) => first())
