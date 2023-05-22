@@ -6,6 +6,7 @@ const MainComponent = () => {
   const inputEl = useRef(null);
   const [allTodos, setAllTodos] = useState([]);
   const [first, setfirst] = useState(true);
+  console.log("here");
 
   const handleNewTodo = () => {
     let todoValue = inputEl.current.value;
